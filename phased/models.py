@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.utils.hashcompat import sha_constructor
+from hashlib import sha1 as sha_constructor
 
 if not hasattr(settings, 'PHASED_SECRET_DELIMITER'):
     settings.PHASED_SECRET_DELIMITER = sha_constructor(getattr(settings, 'SECRET_KEY', '')).hexdigest()
